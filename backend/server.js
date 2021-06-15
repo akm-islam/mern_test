@@ -7,13 +7,13 @@ mongoose.connect('mongodb://akm:Ma%40142566@3.140.216.86:27017/cool_db',{ useNew
 mongoose.connection.once("open", () => {
   console.log("Mongodb connection established successfully");
 });
-
 const PORT = 4000;
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.get("/", (req, res) => {
   Todo.find((err, todos) => {
+    console.log(todos)
     if (err) {
       console.log(err);
     } else {
